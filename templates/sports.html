@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Sports Blog</title>
+    </head>
+    <body class="bg-gray-100">
+        <nav class="bg-black text-white p-4">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="/" class="font-bold text-xl"
+                        >AI Content Generator</a
+                    >
+                    <ul class="flex space-x-6">
+                        <li>
+                            <a href="/" class="hover:text-gray-300">Home</a>
+                        </li>
+                        <li>
+                            <a href="/travel" class="hover:text-gray-300"
+                                >Travel Blog</a
+                            >
+                        </li>
+                        <li>
+                            <a href="/contact" class="hover:text-gray-300"
+                                >Contact Us</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mx-auto mt-10">
+            <h1 class="text-4xl font-bold text-center mb-6">🏆 Sports Blog</h1>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-4 shadow rounded-lg">
+                    <img
+                        src="{{ url_for('static', filename='images/cricket.jpg') }}"
+                        alt="Cricket"
+                        class="w-full rounded"
+                    />
+                    <h2 class="text-xl font-bold mt-4">
+                        Cricket World Cup 2024
+                    </h2>
+                    <p class="text-gray-600 mt-2">
+                        The Cricket World Cup is in full swing, featuring
+                        thrilling matches and stunning performances.
+                    </p>
+                    <a
+                        href="/cricket/readme"
+                        class="text-blue-500 hover:underline"
+                        >Read more</a
+                    >
+                </div>
+
+                <div class="bg-white p-4 shadow rounded-lg">
+                    <img
+                        src="{{ url_for('static', filename='images/football.jpg') }}"
+                        alt="Football"
+                        class="w-full rounded"
+                    />
+                    <h2 class="text-xl font-bold mt-4">
+                        Football Championship 2024
+                    </h2>
+                    <p class="text-gray-600 mt-2">
+                        The latest football championship has taken the world by
+                        storm...
+                    </p>
+                    <a
+                        href="/football/readme"
+                        class="text-blue-500 hover:underline"
+                        >Read more</a
+                    >
+                </div>
+
+                <div class="bg-white p-4 shadow rounded-lg">
+                    <img
+                        src="{{ url_for('static', filename='images/basketball.jpg') }}"
+                        alt="Basketball"
+                        class="w-full rounded"
+                    />
+                    <h2 class="text-xl font-bold mt-4">Basketball Legends</h2>
+                    <p class="text-gray-600 mt-2">
+                        Top basketball players are making history with
+                        record-breaking performances...
+                    </p>
+                    <a
+                        href="/basketball/readme"
+                        class="text-blue-500 hover:underline"
+                        >Read more</a
+                    >
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>AI Content Generator</title>
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-black text-white shadow-md">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <a href="#" class="text-2xl font-bold">AI Content Generator</a>
+
+          <!-- Mobile Menu Button -->
+          <button id="menu-toggle" class="md:hidden focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Desktop Menu -->
+          <ul id="menu" class="hidden md:flex space-x-8">
+            <li>
+              <a id="home-link" href="#" class="hover:text-gray-300 transition"
+                >Home</a
+              >
+            </li>
+
+            <!-- Blogs Dropdown -->
+            <li class="relative group">
+              <a href="#" class="hover:text-gray-300 transition">Blogs</a>
+              <ul
+                class="absolute hidden group-hover:block bg-gray-800 text-white w-40 mt-2 rounded-md shadow-lg"
+              >
+                <li>
+                  <a
+                    id="sports-link"
+                    href="/sports"
+                    class="block px-4 py-2 hover:bg-gray-700"
+                    >Sports Blog</a
+                  >
+                </li>
+                <li>
+                  <a
+                    id="travel-link"
+                    href="/travel"
+                    class="block px-4 py-2 hover:bg-gray-700"
+                    >Travel Blog</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                id="contact-link"
+                href="/contact"
+                class="hover:text-gray-300 transition"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden bg-black text-white p-4 rounded-md"
+        >
+          <a id="home-link" href="/" class="block py-2 hover:text-gray-300"
+            >Home</a
+          >
+          <div id="mobile-blog" class="block py-2">
+            <button class="w-full text-left hover:text-gray-300">
+              Blogs ▼
+            </button>
+            <ul
+              id="mobile-blog-dropdown"
+              class="hidden bg-gray-800 rounded-md mt-2"
+            >
+              <li>
+                <a
+                  id="sports-link"
+                  href="/sports"
+                  class="block px-4 py-2 hover:bg-gray-700"
+                  >Sports Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  id="travel-link"
+                  href="/travel"
+                  class="block px-4 py-2 hover:bg-gray-700"
+                  >Travel Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+          <a
+            id="contact-link"
+            href="/contact"
+            class="block py-2 hover:text-gray-300"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto mt-10">
+      <div class="flex flex-col items-center">
+        <h1 class="text-5xl font-bold mb-4">AI Content Generator</h1>
+        <p class="text-gray-900 text-3xl mb-8">
+          Generate high-quality content with ease.
+        </p>
+
+        <form class="w-full">
+          <textarea
+            id="input-area"
+            class="w-full p-4 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+            placeholder="Enter your prompt here..."
+            style="font-size: 20px"
+          ></textarea>
+          <button
+            id="submibtn"
+            type="submit"
+            class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Generate
+          </button>
+        </form>
+
+        <div id="output-area" class="w-full p-4 border rounded-md mt-4">
+          <!-- Output content will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const blogToggle = document.getElementById("mobile-blog");
+      const blogDropdown = document.getElementById("mobile-blog-dropdown");
+
+      menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      blogToggle.addEventListener("click", () => {
+        blogDropdown.classList.toggle("hidden");
+      });
+
+      const populate = async (event) => {
+        event.preventDefault();
+
+        let prompt = document.getElementById("input-area").value.trim();
+        if (!prompt) {
+          alert("Please enter a topic!");
+          return;
+        }
+
+        try {
+          let response = await fetch("/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt: prompt }),
+          });
+
+          let data = await response.json();
+
+          if (response.ok) {
+            document.getElementById("output-area").innerText =
+              data.generated_text || "No response.";
+          } else {
+            document.getElementById("output-area").innerText =
+              "Error: " + (data.error || "Something went wrong.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("output-area").innerText =
+            "Network error. Please try again later.";
+        }
+      };
+
+      // Attach event listener to the button
+      document.getElementById("submibtn").addEventListener("click", populate);
+    </script>
+  </body>
+</html>

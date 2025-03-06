@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Football - Sports Blog</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body class="bg-gray-100 font-sans">
+        <nav class="bg-black text-white p-4">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="/" class="font-bold text-xl"
+                        >AI Content Generator</a
+                    >
+                    <ul class="flex space-x-6">
+                        <li>
+                            <a href="/" class="hover:text-gray-300">Home</a>
+                        </li>
+                        <li>
+                            <a
+                                href="/cricket/readme"
+                                class="hover:text-gray-300"
+                                >Cricket</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/football/readme"
+                                class="hover:text-gray-300"
+                                >Football</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/basketball/readme"
+                                class="hover:text-gray-300"
+                                >Basketball</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mx-auto mt-10">
+            <div class="flex flex-col items-center">
+                <h1 class="text-5xl font-bold mb-4">Football - README</h1>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Football, also known as soccer in some regions, is the most
+                    popular sport in the world. Played in every corner of the
+                    globe, it has a deep cultural impact, with major tournaments
+                    like the FIFA World Cup drawing millions of viewers.
+                    Football has seen tactical evolutions over the years and is
+                    constantly changing.
+                </p>
+
+                <!-- Football Image -->
+                <div class="mt-6 mb-6">
+                    <img
+                        src="{{ url_for('static', filename='images/football.jpg') }}"
+                        alt="Football Match"
+                        class="w-full h-96 rounded-md shadow-lg"
+                    />
+                </div>
+
+                <section class="mt-12">
+                    <h2 class="text-3xl font-semibold text-blue-500 mb-4">
+                        The Evolution of Football
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Football has undergone immense tactical evolution. From
+                        the traditional 4-4-2 formation to today’s pressing and
+                        possession-based tactics, football continues to innovate
+                        and inspire. The role of data analytics and sports
+                        psychology is now becoming integral to a football team's
+                        success.
+                    </p>
+                </section>
+
+                <footer class="bg-black text-white text-center py-4 mt-10">
+                    <p>
+                        &copy; 2025 AI Content Generator. All rights reserved.
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

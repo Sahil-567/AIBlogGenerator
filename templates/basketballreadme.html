@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Basketball - Sports Blog</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body class="bg-gray-100 font-sans">
+        <nav class="bg-black text-white p-4">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="/" class="font-bold text-xl"
+                        >AI Content Generator</a
+                    >
+                    <ul class="flex space-x-6">
+                        <li>
+                            <a href="/" class="hover:text-gray-300">Home</a>
+                        </li>
+                        <li>
+                            <a
+                                href="/cricket/readme"
+                                class="hover:text-gray-300"
+                                >Cricket</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/football/readme"
+                                class="hover:text-gray-300"
+                                >Football</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/basketball/readme"
+                                class="hover:text-gray-300"
+                                >Basketball</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mx-auto mt-10">
+            <div class="flex flex-col items-center">
+                <h1 class="text-5xl font-bold mb-4">Basketball - README</h1>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Basketball is a fast-paced sport that combines athleticism
+                    with skill. Played professionally in leagues such as the
+                    NBA, basketball has become a major part of global culture,
+                    especially in countries like the USA, China, and Europe.
+                </p>
+
+                <!-- Basketball Image -->
+                <div class="mt-6 mb-6">
+                    <img
+                        src="{{ url_for('static', filename='images/basketball.jpg') }}"
+                        alt="Basketball Game"
+                        class="w-full h-96 rounded-md shadow-lg"
+                    />
+                </div>
+
+                <section class="mt-12">
+                    <h2 class="text-3xl font-semibold text-blue-500 mb-4">
+                        The Dynamics of Basketball
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Basketball has evolved in terms of athleticism,
+                        strategy, and entertainment. Teams are utilizing
+                        advanced statistics to measure player efficiency, and
+                        sports medicine plays a key role in managing player
+                        health. The game has witnessed the rise of superstars
+                        like Michael Jordan, LeBron James, and Kobe Bryant, who
+                        have shaped its modern legacy.
+                    </p>
+                </section>
+
+                <footer class="bg-black text-white text-center py-4 mt-10">
+                    <p>
+                        &copy; 2025 AI Content Generator. All rights reserved.
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
